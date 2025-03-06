@@ -1,0 +1,8 @@
+README.md
+setup.py
+litesysmon.egg-info/PKG-INFO
+litesysmon.egg-info/SOURCES.txt
+litesysmon.egg-info/dependency_links.txt
+litesysmon.egg-info/entry_points.txt
+litesysmon.egg-info/requires.txt
+litesysmon.egg-info/top_level.txt

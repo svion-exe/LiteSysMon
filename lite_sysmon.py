@@ -2,10 +2,16 @@ import psutil
 import argparse
 import logging
 import os
+import platform
 from datetime import datetime
 
-# Create logs directory if it doesn't exist
-LOG_DIR = "logs"
+# Determine OS-specific log directory
+if platform.system() == "Windows":
+    LOG_DIR = os.path.join(os.getenv("APPDATA"), "LiteSysMon_Logs")  # Use AppData for logs
+else:
+    LOG_DIR = "logs"
+
+# Create log directory if not exists
 os.makedirs(LOG_DIR, exist_ok=True)
 
 # Configure logging
@@ -62,9 +68,9 @@ def list_processes(sort_by="cpu", filter_by=None, log=False, alert_cpu=None, ale
         logging.info("\n".join(log_entries))
         if alerts:
             logging.warning("\n".join(alerts))
-        print("\n[INFO] Process details logged to logs/sysmon.log")
+        print(f"\n[INFO] Process details logged to {log_filename}")
 
-if __name__ == "__main__":
+def main():
     parser = argparse.ArgumentParser(description="LiteSysMon - A Lightweight System Monitor")
     parser.add_argument("--sort", choices=["cpu", "memory"], default="cpu", help="Sort processes by CPU or memory usage")
     parser.add_argument("--filter", help="Filter processes by name")
@@ -73,4 +79,8 @@ if __name__ == "__main__":
     parser.add_argument("--alert-memory", type=float, help="Set memory usage alert threshold (in %)")
     args = parser.parse_args()
 
-    list_processes(sort_by=args.sort, filter_by=args.filter, log=args.log, alert_cpu=args.alert_cpu, alert_memory=args.alert_memory)
+    list_processes(sort_by=args.sort, filter_by=args.filter, log=args.log,
+                   alert_cpu=args.alert_cpu, alert_memory=args.alert_memory)
+
+if __name__ == "__main__":
+    main()

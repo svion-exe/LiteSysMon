@@ -1,0 +1,14 @@
+Metadata-Version: 2.2
+Name: litesysmon
+Version: 0.1.0
+Summary: A lightweight system process monitor with alerts and logging
+Author: Team Titans
+Author-email: rajatsinghr16@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: POSIX :: Linux
+Requires-Dist: psutil
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: requires-dist
+Dynamic: summary
