@@ -12,9 +12,10 @@ os.makedirs(LOG_DIR, exist_ok=True)
 log_filename = os.path.join(LOG_DIR, "sysmon.log")
 logging.basicConfig(filename=log_filename, level=logging.INFO, format="%(asctime)s - %(message)s")
 
-def list_processes(sort_by="cpu", filter_by=None, log=False):
-    """Lists running processes with sorting, filtering, and optional logging."""
+def list_processes(sort_by="cpu", filter_by=None, log=False, alert_cpu=None, alert_memory=None):
+    """Lists running processes with sorting, filtering, logging, and alerts for high resource usage."""
     processes = []
+    alerts = []
 
     for proc in psutil.process_iter(['pid', 'name', 'cpu_percent', 'memory_percent']):
         try:
@@ -22,6 +23,15 @@ def list_processes(sort_by="cpu", filter_by=None, log=False):
             if filter_by and filter_by.lower() not in proc_info['name'].lower():
                 continue  # Skip if process name does not match filter
             processes.append(proc_info)
+
+            # Check for high CPU usage alert
+            if alert_cpu and proc_info['cpu_percent'] >= alert_cpu:
+                alerts.append(f"⚠️ High CPU Usage: {proc_info['name']} (PID {proc_info['pid']}) is using {proc_info['cpu_percent']}% CPU")
+
+            # Check for high memory usage alert
+            if alert_memory and proc_info['memory_percent'] >= alert_memory:
+                alerts.append(f"⚠️ High Memory Usage: {proc_info['name']} (PID {proc_info['pid']}) is using {proc_info['memory_percent']}% Memory")
+
         except (psutil.NoSuchProcess, psutil.AccessDenied, psutil.ZombieProcess):
             continue
 
@@ -41,9 +51,17 @@ def list_processes(sort_by="cpu", filter_by=None, log=False):
         print(entry)
         log_entries.append(entry)
 
+    # Print alerts
+    if alerts:
+        print("\n🔴 ALERTS:")
+        for alert in alerts:
+            print(alert)
+
     # Save to log file if logging is enabled
     if log:
         logging.info("\n".join(log_entries))
+        if alerts:
+            logging.warning("\n".join(alerts))
         print("\n[INFO] Process details logged to logs/sysmon.log")
 
 if __name__ == "__main__":
@@ -51,6 +69,8 @@ if __name__ == "__main__":
     parser.add_argument("--sort", choices=["cpu", "memory"], default="cpu", help="Sort processes by CPU or memory usage")
     parser.add_argument("--filter", help="Filter processes by name")
     parser.add_argument("--log", action="store_true", help="Enable logging of process data")
+    parser.add_argument("--alert-cpu", type=float, help="Set CPU usage alert threshold (in %)")
+    parser.add_argument("--alert-memory", type=float, help="Set memory usage alert threshold (in %)")
     args = parser.parse_args()
 
-    list_processes(sort_by=args.sort, filter_by=args.filter, log=args.log)
+    list_processes(sort_by=args.sort, filter_by=args.filter, log=args.log, alert_cpu=args.alert_cpu, alert_memory=args.alert_memory)
