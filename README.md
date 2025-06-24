@@ -3,10 +3,9 @@
 **LiteSysMon** is a lightweight, terminal-based Linux system process monitor built in Python. It displays real-time CPU and memory usage, supports smart alerts, logs stats, exports to CSV, and even visualizes usage with graphs.
 
 [![Python Version](https://img.shields.io/badge/python-3.6+-blue.svg)](https://python.org)
-[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![Platform](https://img.shields.io/badge/platform-Linux-orange.svg)](https://www.linux.org/)
 
-![LiteSysMon Demo](https://via.placeholder.com/800x400/1a1a1a/00ff00?text=LiteSysMon+Terminal+Dashboard)
+
 
 ---
 
