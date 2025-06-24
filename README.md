@@ -30,7 +30,7 @@
 ### Option 1: Install from Source (Recommended)
 ```bash
 # Clone the repository
-git clone https://github.com/svion-exee/LiteSysMon.git
+git clone https://github.com/svion-exe/LiteSysMon.git
 cd LiteSysMon
 
 # Install dependencies
@@ -42,7 +42,7 @@ pip install .
 
 ### Option 2: Development Installation
 ```bash
-git clone https://github.com/svion-exee/LiteSysMon.git
+git clone https://github.com/svion-exe/LiteSysMon.git
 cd LiteSysMon
 pip install -e .
 ```
@@ -301,9 +301,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 👨‍💻 Author
 
-**Rajat Singh Rawat** ([@svion-exee](https://github.com/svion-exee))
+**Rajat Singh Rawat** ([@svion-exe](https://github.com/svion-exe))
 
-- 🐙 GitHub: [svion-exee](https://github.com/svion-exee)
+- 🐙 GitHub: [svion-exe](https://github.com/svion-exe)
 - 📧 Email: [your.email@example.com](mailto:your.email@example.com)
 
 ---
@@ -321,12 +321,12 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 Give a ⭐️ if this project helped you!
 
-[![GitHub stars](https://img.shields.io/github/stars/svion-exee/LiteSysMon.svg?style=social&label=Star)](https://github.com/svion-exee/LiteSysMon)
-[![GitHub forks](https://img.shields.io/github/forks/svion-exee/LiteSysMon.svg?style=social&label=Fork)](https://github.com/svion-exee/LiteSysMon/fork)
+[![GitHub stars](https://img.shields.io/github/stars/svion-exe/LiteSysMon.svg?style=social&label=Star)](https://github.com/svion-exe/LiteSysMon)
+[![GitHub forks](https://img.shields.io/github/forks/svion-exe/LiteSysMon.svg?style=social&label=Fork)](https://github.com/svion-exe/LiteSysMon/fork)
 
 ---
 
 <div align="center">
-  <p>Made with ❤️ and ☕ by <a href="https://github.com/svion-exee">@svion-exee</a></p>
+  <p>Made with ❤️ and ☕ by <a href="https://github.com/svion-exe">@svion-exe</a></p>
   <p><strong>LiteSysMon</strong> - Monitoring made simple!</p>
 </div>
