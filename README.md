@@ -301,7 +301,7 @@ LiteSysMon is designed to be lightweight:
 **Rajat Singh Rawat** ([@svion-exe](https://github.com/svion-exe))
 
 - 🐙 GitHub: [svion-exe](https://github.com/svion-exe)
-- 📧 Email: [your.rajatsinghr16@gmail.com](mailto:rajatsinghr16@gmail.com)
+- 📧 Email: [rajatsinghr16@gmail.com](mailto:rajatsinghr16@gmail.com)
 
 ---
 
